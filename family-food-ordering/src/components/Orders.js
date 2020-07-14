@@ -1,17 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { UserContext } from '../context/UserContext';
+import UserOrder from './UserOrder';
 
 const Orders = () => {
+	const { users } = useContext(UserContext);
 	return (
-		<div>
-			<h1>Orders</h1>
-			<Link to='/users'>
-				<button className='btn'>Back</button>
-			</Link>
-			<Link to='/'>
-				<button className='btn'>Next</button>
-			</Link>
-		</div>
+		<ul>
+			{users
+				.filter((user) => user.isEating === true)
+				.sort((a, b) => (a.name > b.name ? 1 : -1))
+				.map((user) => {
+					return <UserOrder user={user} key={user.id} />;
+				})}
+		</ul>
 	);
 };
 

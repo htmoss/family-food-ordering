@@ -1,24 +1,30 @@
 import React, { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { UserContext } from '../context/UserContext';
+import { UserContext } from '../../context/UserContext';
 // import { FaCheck, FaTimes } from 'react-icons/fa';
-import User from './User';
+import User from '../User';
 import { Link } from 'react-router-dom';
 
 const Users = () => {
-	const {
-		setUsers,
-		users,
-		userName,
-		setUserName,
-		// deleteUser,
-		isEating,
-		// setIsEating,
-	} = useContext(UserContext);
+	const { setUsers, users, userName, setUserName, isEating } = useContext(
+		UserContext
+	);
 
 	const addUser = (e) => {
 		e.preventDefault();
-		users && setUsers([...users, { name: userName, isEating, id: uuidv4() }]);
+		users &&
+			setUsers(
+				[
+					...users,
+					{
+						name: userName.toLowerCase(),
+						isEating,
+						order: [],
+						prevOrder: [],
+						id: uuidv4(),
+					},
+				].sort((a, b) => (a.name > b.name ? 1 : -1))
+			);
 		setUserName('');
 	};
 
