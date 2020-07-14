@@ -9,9 +9,9 @@ const Orders = () => {
 			{users
 				.filter((user) => user.isEating === true)
 				.sort((a, b) => (a.name > b.name ? 1 : -1))
-				.map((user) => {
-					return <UserOrder user={user} key={user.id} />;
-				})}
+				.map((user) => (
+					<UserOrder user={user} key={user.id} />
+				))}
 		</ul>
 	);
 };

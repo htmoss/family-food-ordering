@@ -1,20 +1,25 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
-	const [users, setUsers] = useState([
-		{
-			name: 'Brad',
-			isEating: true,
-			order: [
-				{ name: 'eggs', price: 1.99 },
-				{ name: 'bacon', price: 2.99 },
-			],
-			prevOrder: [],
-			id: uuidv4(),
-		},
-	]);
+	// const [users, setUsers] = useState([
+	// 	{
+	// 		name: 'brad',
+	// 		isEating: true,
+	// 		order: [
+	// 			{ name: 'eggs', price: 1.99 },
+	// 			{ name: 'bacon', price: 2.99 },
+	// 		],
+	// 		prevOrder: [],
+	// 		id: uuidv4(),
+	// 	},
+	// ]);
+	const [users, setUsers] = useState(() => {
+		const localData = localStorage.getItem('users');
+		return localData ? JSON.parse(localData) : [];
+	});
+
 	const [userName, setUserName] = useState('');
 	const [isEating, setIsEating] = useState(true);
 	const [currEdit, setCurrEdit] = useState({});
@@ -49,6 +54,10 @@ const UserContextProvider = (props) => {
 		setUsers([...users.filter((user) => user.id !== currEdit.id), currEdit]);
 	};
 
+	useEffect(() => {
+		localStorage.setItem('users', JSON.stringify(users));
+	}, [users]);
+
 	return (
 		<UserContext.Provider
 			value={{
@@ -63,7 +72,6 @@ const UserContextProvider = (props) => {
 				changeIsEating,
 				currEdit,
 				setCurrEdit,
-				// alphabetize,
 				addFoodItem,
 				updateCurrEdit,
 			}}

@@ -6,7 +6,7 @@ const Home = () => {
 		<div>
 			<h1>Welcome</h1>
 			<Link to='/users'>
-				<button>Begin</button>
+				<button>Begin Pickup Order</button>
 			</Link>
 		</div>
 	);

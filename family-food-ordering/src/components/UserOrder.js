@@ -15,6 +15,11 @@ const UserOrder = ({ user }) => {
 					user.order.map((food) => <li key={uuidv4()}>{food.name}</li>)
 				)}
 			</ul>
+			{user.order.length !== 0 && (
+				<p className='user-order-total'>
+					${user.order.reduce((total, curr) => total + curr.price, 0)}
+				</p>
+			)}
 			<Link to='/menu'>
 				<button onClick={() => setCurrEdit(user)}>Edit Order</button>
 			</Link>
