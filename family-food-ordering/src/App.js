@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Users from './components/Users';
 import Home from './components/Home';
 import UserContextProvider from './context/UserContext';
+import Orders from './components/Orders';
 
 function App() {
 	return (
@@ -18,6 +19,9 @@ function App() {
 						</Route>
 						<Route path='/users'>
 							<Users />
+						</Route>
+						<Route path='/orders'>
+							<Orders />
 						</Route>
 					</Switch>
 				</UserContextProvider>
