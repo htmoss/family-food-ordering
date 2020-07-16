@@ -17,5 +17,4 @@ const SummaryItem = ({ user }) => {
 		</div>
 	);
 };
-
 export default SummaryItem;
