@@ -143,6 +143,7 @@ ul {
   position: relative;
   width: 100%;
   height: 100%;
+  opacity: 1;
   transition: 0.4s ease all;
 }
 
@@ -155,7 +156,7 @@ ul {
   top: -20px;
   width: 100%;
   height: 100%;
-  opacity: 30%;
+  opacity: 0.5;
   transition: 0.4s ease all;
 }
 
