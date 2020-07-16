@@ -7,6 +7,8 @@ import Home from './components/pages/Home';
 import UserContextProvider from './context/UserContext';
 import OrdersPage from './components/pages/OrdersPage';
 import Menu from './components/pages/Menu';
+import Complete from './components/pages/Complete';
+import Summary from './components/pages/Summary';
 
 function App() {
 	return (
@@ -26,6 +28,12 @@ function App() {
 						</Route>
 						<Route path='/menu'>
 							<Menu />
+						</Route>
+						<Route path='/summary'>
+							<Summary />
+						</Route>
+						<Route path='/complete'>
+							<Complete />
 						</Route>
 					</Switch>
 				</UserContextProvider>

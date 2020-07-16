@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
 	return (
-		<div>
+		<div className='home'>
 			<h1>Welcome</h1>
 			<Link to='/users'>
-				<button>Begin Pickup Order</button>
+				<button className='btn'>Begin</button>
 			</Link>
 		</div>
 	);

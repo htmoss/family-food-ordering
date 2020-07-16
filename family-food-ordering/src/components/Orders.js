@@ -5,7 +5,7 @@ import UserOrder from './UserOrder';
 const Orders = () => {
 	const { users } = useContext(UserContext);
 	return (
-		<ul>
+		<ul className='orders-list'>
 			{users
 				.filter((user) => user.isEating === true)
 				.sort((a, b) => (a.name > b.name ? 1 : -1))

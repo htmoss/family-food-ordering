@@ -1,13 +1,313 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Lato', sans-serif;
+  font-weight: light;
+  background: #141414;
+  color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header {
+  font-family: 'Bahiana', cursive;
+  color: #e50914;
+  display: flex;
+  align-items: flex-start;
+  padding: 0 2rem;
 }
+
+li {
+  list-style-type: none;
+}
+
+.home,
+.completed,
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 70vh;
+}
+
+button {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+}
+
+.btn {
+  padding: 0.5rem 1.2rem;
+  margin: 1rem 0.5rem;
+  border: none;
+}
+
+.btn:hover {
+  color: #fff;
+  background: #e50914;
+}
+
+.no-click {
+  opacity: 0.4;
+}
+
+.no-click:hover {
+  color: #000;
+  background: #fff;
+}
+
+.back-arrow {
+  color: #fff;
+  font-size: 2rem;
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem 3rem;
+  transition: 0.2s all ease;
+}
+
+.back-arrow:hover {
+  opacity: 0.9;
+  transform: scale(1.2);
+}
+
+.page-title {
+  text-align: center;
+  margin: auto;
+  margin-top: 6rem;
+}
+
+ul {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 00px;
+}
+
+.alert {
+  margin: auto;
+  padding: 0;
+}
+
+.alert .error-symbol {
+  position: relative;
+  top: 3px;
+  margin-right: 5px;
+}
+
+.users form input[type='text'] {
+  padding: 0.4rem 0.5rem;
+}
+
+.users form button {
+  padding: 0.5rem 1.2rem;
+}
+
+.users-grid {
+  padding: 2rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.delete-button {
+  transition: transform 0.1s ease;
+  z-index: 2;
+}
+
+.delete-button:hover {
+  transform: scale(1.1);
+}
+
+.user {
+  position: relative;
+  width: 100px;
+  margin-bottom: 1.5rem;
+  height: 100px;
+}
+
+.user .name {
+  position: relative;
+  bottom: 10px;
+  text-transform: capitalize;
+}
+
+.user .delete-button {
+  position: relative;
+  right: -36px;
+  top: 5px;
+}
+
+.user .is-eating-true {
+  top: -20px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s ease all;
+}
+
+.user .is-eating-true:hover {
+  transform: scale(1.05);
+}
+
+.user .is-eating-false {
+  position: relative;
+  top: -20px;
+  width: 100%;
+  height: 100%;
+  opacity: 30%;
+  transition: 0.4s ease all;
+}
+
+.user .is-eating-false:hover {
+  transform: scale(1.05);
+}
+
+.orders-list {
+  margin: auto;
+  padding-right: 0.5rem;
+}
+
+.order {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1fr;
+  max-width: 400px;
+  margin: 2rem auto;
+  padding-bottom: 0rem;
+  gap: 3rem 0rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.order .name {
+  text-transform: capitalize;
+  margin-bottom: 0rem;
+}
+
+.order .pic-and-name {
+  position: relative;
+  top: 15px;
+}
+
+.order .order-and-button {
+  display: flex;
+  flex-direction: row;
+}
+
+.order .current-order {
+  display: grid;
+  justify-content: left;
+  align-items: center;
+  text-transform: capitalize;
+  text-align: left;
+}
+
+.name {
+  text-transform: capitalize;
+}
+
+.menu .name-and-order {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  max-width: 15rem;
+}
+
+.menu .pic-and-name {
+  margin-right: 3rem;
+}
+
+.menu .current-order {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.menu .order-and-total {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu .delete-button {
+  position: relative;
+  top: 2px;
+  padding: 0 0.3rem;
+}
+
+.menu .menu-items {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.menu .menu-items .menu-item {
+  cursor: pointer;
+  border-bottom: 2px grey dotted;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  text-transform: capitalize;
+}
+
+.menu .menu-items .price {
+  margin-left: 1rem;
+}
+
+.sum-item {
+  margin: 0.5rem auto;
+  display: flex;
+  text-transform: capitalize;
+  justify-content: space-between;
+  max-width: 400px;
+  padding: 0 1rem;
+  border-bottom: 2px grey dotted;
+}
+
+.sum-item .name {
+  margin: 0;
+  margin-top: 0rem;
+  margin-bottom: 01rem;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.sum-item p {
+  margin: 0;
+}
+
+.sum-item li {
+  display: flex;
+  justify-content: flex-end;
+  align-self: flex-end;
+  margin-bottom: 0.7rem;
+}
+
+.sum-item .price {
+  margin-left: 1rem;
+}
+
+.final-money {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 400px;
+  text-align: right;
+  margin-bottom: 2rem;
+}
+
+.final-item {
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.final-item h2,
+.final-item h4 {
+  margin: 0.5rem 0;
+}
+/*# sourceMappingURL=index.css.map */

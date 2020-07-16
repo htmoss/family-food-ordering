@@ -4,6 +4,8 @@ import { UserContext } from '../../context/UserContext';
 // import { FaCheck, FaTimes } from 'react-icons/fa';
 import User from '../User';
 import { Link } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
+import { RiErrorWarningLine } from 'react-icons/ri';
 
 const Users = () => {
 	const { setUsers, users, userName, setUserName, isEating } = useContext(
@@ -16,6 +18,7 @@ const Users = () => {
 		if (userName === '') {
 			blankAlert();
 		} else {
+			let pic = (Math.floor(Math.random() * 42) + 1).toString();
 			users &&
 				setUsers(
 					[
@@ -24,7 +27,7 @@ const Users = () => {
 							name: userName.toLowerCase(),
 							isEating,
 							order: [],
-							prevOrder: [],
+							pic: pic,
 							id: uuidv4(),
 						},
 					].sort((a, b) => (a.name > b.name ? 1 : -1))
@@ -48,9 +51,12 @@ const Users = () => {
 	};
 
 	return (
-		<div>
-			<h1>Who is eating today?</h1>
-			<ul>
+		<div className='users'>
+			<Link to='/'>
+				<FaArrowLeft className='back-arrow' />
+			</Link>
+			<h1 className='page-title'>Who is eating today?</h1>
+			<ul className='users-grid'>
 				{users.map((user) => {
 					return <User user={user} key={user.id} />;
 				})}
@@ -63,11 +69,9 @@ const Users = () => {
 					value={userName}
 					onChange={(e) => setUserName(e.target.value)}
 				/>
-				<button>Add user</button>
+				<button className='btn'>Add user</button>
 			</form>
-			<Link to='/'>
-				<button className='btn'>Back</button>
-			</Link>
+
 			{users.filter((user) => user.isEating === true).length > 0 ? (
 				<Link to='/orders'>
 					<button className='btn'>Next</button>
@@ -77,7 +81,12 @@ const Users = () => {
 					Next
 				</button>
 			)}
-			{showAlert !== '' && <h4 className='alert'>{showAlert}</h4>}
+			{showAlert !== '' && (
+				<h4 className='alert'>
+					<RiErrorWarningLine className='error-symbol' />
+					{showAlert}
+				</h4>
+			)}
 		</div>
 	);
 };

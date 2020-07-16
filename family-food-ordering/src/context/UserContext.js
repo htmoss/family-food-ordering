@@ -3,18 +3,6 @@ import { v4 as uuidv4 } from 'uuid';
 export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
-	// const [users, setUsers] = useState([
-	// 	{
-	// 		name: 'brad',
-	// 		isEating: true,
-	// 		order: [
-	// 			{ name: 'eggs', price: 1.99 },
-	// 			{ name: 'bacon', price: 2.99 },
-	// 		],
-	// 		prevOrder: [],
-	// 		id: uuidv4(),
-	// 	},
-	// ]);
 	const [users, setUsers] = useState(() => {
 		const localData = localStorage.getItem('users');
 		return localData ? JSON.parse(localData) : [];
@@ -32,9 +20,9 @@ const UserContextProvider = (props) => {
 		setUsers(users.filter((user) => user.id !== id));
 	};
 
-	const changeIsEating = ({ name, isEating, id, order, prevOrder }) => {
+	const changeIsEating = ({ name, isEating, id, order, pic }) => {
 		setUsers(
-			[...users, { name, isEating: !isEating, order, prevOrder, id: uuidv4() }]
+			[...users, { name, isEating: !isEating, order, pic, id: uuidv4() }]
 				.filter((user) => user.id !== id)
 				.sort((a, b) => (a.name > b.name ? 1 : -1))
 		);
@@ -45,6 +33,7 @@ const UserContextProvider = (props) => {
 			name: currEdit.name,
 			isEating: currEdit.isEating,
 			id: currEdit.id,
+			pic: currEdit.pic,
 			order: [...currEdit.order, menuItem],
 		});
 	};

@@ -1,27 +1,25 @@
 import React, { useContext } from 'react';
-import { FaCheck, FaTimes, FaTrash } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 import { UserContext } from '../context/UserContext';
 
 const User = ({ user }) => {
 	const { changeIsEating, deleteUser } = useContext(UserContext);
 	return (
-		<li>
-			<div className='name'>{user.name}</div>
-			<div className='is-eating-symbol'>
-				{user.isEating ? (
-					<FaCheck onClick={() => changeIsEating(user)} />
-				) : (
-					<FaTimes onClick={() => changeIsEating(user)} />
-				)}
-			</div>
-			<div
+		<li className='user'>
+			<FaTimes
 				className='delete-button'
 				onClick={() => {
 					deleteUser(user.id);
 				}}
+			/>
+
+			<div
+				className={`user-bg is-eating-${user.isEating}`}
+				onClick={() => changeIsEating(user)}
 			>
-				<FaTrash />
+				<img src={`/img/${user.pic}.png`} alt='User' />
 			</div>
+			<div className='name'>{user.name}</div>
 		</li>
 	);
 };

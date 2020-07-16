@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Orders from '../Orders';
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
+import { FaArrowLeft } from 'react-icons/fa';
+import { RiErrorWarningLine } from 'react-icons/ri';
 
 const OrdersPage = () => {
 	const { users } = useContext(UserContext);
@@ -16,13 +18,15 @@ const OrdersPage = () => {
 	};
 	return (
 		<div>
+			<Link to='/users'>
+				<FaArrowLeft className='back-arrow' />
+			</Link>
 			<h1>Orders</h1>
 			<Orders />
-			<Link to='/users'>
-				<button className='btn'>Back</button>
-			</Link>
+
+			{/* Check to see if everyone has food  */}
 			{users.filter((user) => user.order.length > 0).length === users.length ? (
-				<Link to='/'>
+				<Link to='/summary'>
 					<button className='btn'>Complete Order</button>
 				</Link>
 			) : (
@@ -31,7 +35,10 @@ const OrdersPage = () => {
 				</button>
 			)}
 			{showAlert && (
-				<h4 className='alert'>Not everyone in your list has ordered food.</h4>
+				<h4 className='alert'>
+					<RiErrorWarningLine className='error-symbol' />
+					Not everyone in your list has ordered food.
+				</h4>
 			)}
 		</div>
 	);
