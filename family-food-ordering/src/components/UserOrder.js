@@ -2,15 +2,23 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { UserContext } from '../context/UserContext';
+import { FaEdit } from 'react-icons/fa';
 
 const UserOrder = ({ user }) => {
 	const { setCurrEdit } = useContext(UserContext);
 	return (
 		<li className='order'>
-			<div className='pic-and-name'>
-				<img src={`/img/${user.pic}.png`} alt='User' />
-				<div className='name'>{user.name}</div>
-			</div>
+			<Link to='/menu'>
+				<FaEdit onClick={() => setCurrEdit(user)} className='btn edit'>
+					Edit
+				</FaEdit>
+			</Link>
+			<Link to='/menu' style={{ textDecoration: 'none', color: '#fff' }}>
+				<div onClick={() => setCurrEdit(user)} className='pic-and-name'>
+					<img src={`/img/users/${user.pic}.png`} alt='User' />
+					<div className='name'>{user.name}</div>
+				</div>
+			</Link>
 			<div>
 				<ul className='current-order'>
 					{user.order.length === 0 ? (
@@ -25,11 +33,6 @@ const UserOrder = ({ user }) => {
 					</p>
 				)} */}
 			</div>
-			<Link to='/menu'>
-				<button onClick={() => setCurrEdit(user)} className='btn edit'>
-					Edit
-				</button>
-			</Link>
 		</li>
 	);
 };

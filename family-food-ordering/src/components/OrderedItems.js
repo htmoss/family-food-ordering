@@ -17,10 +17,10 @@ const OrderedItems = ({ food }) => {
 	};
 	return (
 		<div>
-			<li key={uuidv4()} className='name'>
-				{food.name}
-				{/* <button onClick={onClick}>x</button> */}
+			<li key={uuidv4()} className='ordered-item'>
 				<FaTimes className='delete-button' onClick={onClick} />
+				<p className='name'>{food.name}</p>
+				{`$${food.price}`}
 			</li>
 		</div>
 	);

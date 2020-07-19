@@ -17,7 +17,7 @@ const User = ({ user }) => {
 				className={`user-bg is-eating-${user.isEating}`}
 				onClick={() => changeIsEating(user)}
 			>
-				<img src={`/img/${user.pic}.png`} alt='User' />
+				<img src={`/img/users/${user.pic}.png`} alt='User' />
 			</div>
 			<div className='name'>{user.name}</div>
 		</li>

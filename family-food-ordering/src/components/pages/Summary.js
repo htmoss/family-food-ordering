@@ -117,7 +117,11 @@ const Summary = () => {
 						<span>${final.toFixed(2)}</span>
 					</div>
 				</div>
-
+				<p className='alert'>
+					<RiErrorWarningLine className='error-symbol' />
+					No need to use PayPal, you can move forward by pressing Submit below
+				</p>
+				<br />
 				<div>
 					{paidFor ? (
 						<div>
@@ -136,10 +140,7 @@ const Summary = () => {
 				{/* <Link to='/orders'>
 				<button className='btn'>Back</button>
 			</Link> */}
-				<p className='alert'>
-					<RiErrorWarningLine className='error-symbol' />
-					No need to use PayPal, you can move forward by pressing Submit below
-				</p>
+
 				<Link to='/complete'>
 					<button className='btn'>Submit Order</button>
 				</Link>

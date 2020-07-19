@@ -4,7 +4,7 @@ import { UserContext } from '../context/UserContext';
 import { RiErrorWarningLine } from 'react-icons/ri';
 
 const MenuItem = (menuItem) => {
-	const { name, price } = menuItem;
+	const { name, price, img } = menuItem;
 	const { addFoodItem, currEdit } = useContext(UserContext);
 	const [showAlert, setShowAlert] = useState(false);
 
@@ -23,14 +23,21 @@ const MenuItem = (menuItem) => {
 
 	return (
 		<div onClick={onClick} className='menu-item'>
-			<h3>{name}</h3>
-			{showAlert && (
-				<h3 className='alert'>
-					<RiErrorWarningLine className='error-symbol' />
-					Food item is already in order
-				</h3>
-			)}
-			<h3 className='price'>${price}</h3>
+			<img
+				src={`./img/foods/${img}.jpg`}
+				className='menu-img'
+				alt='menu-item'
+			/>
+			<div className='details'>
+				{showAlert && (
+					<h3 className='alert'>
+						<RiErrorWarningLine className='error-symbol' />
+						Food item is already in order
+					</h3>
+				)}
+				<h3>{name}</h3>
+				<p className='price'>${price}</p>
+			</div>
 		</div>
 	);
 };
