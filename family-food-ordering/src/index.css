@@ -97,6 +97,10 @@ ul {
   margin-right: 5px;
 }
 
+.home h1 {
+  font-size: 3rem;
+}
+
 .users form input[type='text'] {
   padding: 0.4rem 0.5rem;
 }
