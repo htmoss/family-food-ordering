@@ -61,13 +61,13 @@ button {
 .back-arrow {
 	color: #fff;
 	font-size: 2rem;
-	display: flex;
-	align-items: flex-start;
+	position: relative;
+	left: -40%;
 	padding: 1rem 3rem;
 	transition: 0.2s all ease;
 	&:hover {
 		opacity: 0.9;
-		transform: scale(1.2);
+		transform: scale(1.2, 1.2);
 	}
 }
 

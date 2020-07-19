@@ -5,21 +5,30 @@ import { RiErrorWarningLine } from 'react-icons/ri';
 
 const MenuItem = (menuItem) => {
 	const { name, price, img } = menuItem;
-	const { addFoodItem, currEdit } = useContext(UserContext);
-	const [showAlert, setShowAlert] = useState(false);
+	const {
+		addFoodItem,
+		// currEdit
+	} = useContext(UserContext);
+	const [
+		showAlert,
+		// setShowAlert
+	] = useState(false);
 
 	const onClick = () => {
-		currEdit.order.find((item) => item.name === name) === undefined
-			? addFoodItem(menuItem)
-			: duplicateAlert();
+		// checks to see if item is already in list
+		// currEdit.order.find((item) => item.name === name) === undefined
+		// 	? addFoodItem(menuItem)
+		// 	: duplicateAlert();
+
+		addFoodItem(menuItem);
 	};
 
-	const duplicateAlert = () => {
-		setShowAlert(true);
-		setTimeout(() => {
-			setShowAlert(false);
-		}, 3000);
-	};
+	// const duplicateAlert = () => {
+	// 	setShowAlert(true);
+	// 	setTimeout(() => {
+	// 		setShowAlert(false);
+	// 	}, 3000);
+	// };
 
 	return (
 		<div onClick={onClick} className='menu-item'>

@@ -26,7 +26,7 @@ const Menu = () => {
 	return (
 		<div className='menu'>
 			<Link to='/orders'>
-				<FaArrowLeft className='back-arrow' />
+				<FaArrowLeft className='back-arrow' onClick={updateCurrEdit} />
 			</Link>
 			<motion.div
 				variants={containerVariants}
