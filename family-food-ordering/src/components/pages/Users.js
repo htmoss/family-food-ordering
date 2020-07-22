@@ -120,6 +120,7 @@ const Users = () => {
 						{showAlert}
 					</h4>
 				)}
+				<br />
 			</motion.div>
 		</div>
 	);

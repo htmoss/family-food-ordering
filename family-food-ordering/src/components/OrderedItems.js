@@ -6,14 +6,21 @@ import { FaTimes } from 'react-icons/fa';
 const OrderedItems = ({ food }) => {
 	const { currEdit, setCurrEdit } = useContext(UserContext);
 	const onClick = () => {
-		const newCurr = {
-			name: currEdit.name,
-			isEating: currEdit.isEating,
-			id: currEdit.id,
-			pic: currEdit.pic,
-			order: currEdit.order.filter((item) => item.name !== food.name),
-		};
-		setCurrEdit(newCurr);
+		const index = currEdit.order.findIndex((item) => item.name === food.name);
+		console.log(index);
+		if (index !== -1) {
+			const newOrder = currEdit.order
+				.slice(0, index)
+				.concat(currEdit.order.slice(index + 1));
+			const newCurr = {
+				name: currEdit.name,
+				isEating: currEdit.isEating,
+				id: currEdit.id,
+				pic: currEdit.pic,
+				order: newOrder,
+			};
+			setCurrEdit(newCurr);
+		}
 	};
 	return (
 		<div>
