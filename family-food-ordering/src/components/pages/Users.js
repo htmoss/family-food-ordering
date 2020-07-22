@@ -33,7 +33,9 @@ const Users = () => {
 		if (userName === '') {
 			blankAlert();
 		} else {
-			let pic = (Math.floor(Math.random() * 42) + 1).toString();
+			let pic = (Math.floor(Math.random() * 6) + 1).toString();
+			pic = pic.concat('.');
+			pic = pic.concat(Math.floor(Math.random() * 7) + 1).toString();
 			users &&
 				setUsers(
 					[
@@ -77,10 +79,21 @@ const Users = () => {
 			>
 				<h1 className='page-title'>Who is eating today?</h1>
 				<ul className='users-grid'>
-					{users.map((user) => {
-						return <User user={user} key={user.id} />;
-					})}
+					{users
+						.filter((user) => user.isEating === true)
+						.map((user) => {
+							return <User user={user} key={user.id} />;
+						})}
 				</ul>
+				{users.filter((user) => user.isEating === false).length > 0 && (
+					<ul className='users-grid not-eating'>
+						{users
+							.filter((user) => user.isEating === false)
+							.map((user) => {
+								return <User user={user} key={user.id} />;
+							})}
+					</ul>
+				)}
 
 				<form onSubmit={addUser}>
 					<input

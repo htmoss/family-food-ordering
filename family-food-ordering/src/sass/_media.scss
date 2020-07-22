@@ -68,4 +68,16 @@
 			}
 		}
 	}
+	.order {
+		// display: flex;
+		width: 200px;
+		margin: 2rem auto;
+		padding: 0;
+		gap: 0.5rem;
+		.edit {
+			margin: auto;
+			width: 22px;
+			height: 40px;
+		}
+	}
 }

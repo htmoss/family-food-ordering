@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { UserContext } from '../context/UserContext';
 import { FaEdit } from 'react-icons/fa';
+import { FiMoreHorizontal } from 'react-icons/fi';
 
 const UserOrder = ({ user }) => {
 	const { setCurrEdit } = useContext(UserContext);
@@ -20,11 +21,19 @@ const UserOrder = ({ user }) => {
 				</div>
 			</Link>
 			<div>
+				{/* List out current order */}
 				<ul className='current-order'>
 					{user.order.length === 0 ? (
 						<li key={uuidv4()}>No food yet</li>
 					) : (
-						user.order.map((food) => <li key={uuidv4()}>{food.name}</li>)
+						user.order
+							.slice(0, 4)
+							.map((food) => <li key={uuidv4()}>{food.name}</li>)
+					)}
+					{user.order.length > 4 && (
+						<li>
+							<FiMoreHorizontal />
+						</li>
 					)}
 				</ul>
 				{/* {user.order.length !== 0 && (

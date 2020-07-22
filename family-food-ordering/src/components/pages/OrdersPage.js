@@ -65,6 +65,7 @@ const OrdersPage = () => {
 					</h4>
 				)}
 			</motion.div>
+			<br />
 		</div>
 	);
 };
