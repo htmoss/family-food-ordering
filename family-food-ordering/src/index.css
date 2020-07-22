@@ -115,6 +115,7 @@ ul {
   display: grid;
   grid-auto-flow: column;
   justify-content: center;
+  margin: 0 auto;
   gap: 1rem;
 }
 
@@ -525,6 +526,29 @@ ul {
   .menu .menu-items {
     grid-template-columns: repeat(1, 1fr);
   }
+  .users-grid {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-columns: 100px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+  .pic-and-name {
+    margin: 0 1rem;
+  }
+  .order {
+    width: 300px;
+    margin: 2rem auto;
+    padding: 0;
+    grid-template-columns: 0.5fr 1fr 1fr;
+  }
+  .order .edit {
+    margin: auto;
+    width: 22px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 320px) {
@@ -543,15 +567,7 @@ ul {
     width: 150px;
   }
   .order {
-    width: 200px;
-    margin: 2rem auto;
-    padding: 0;
-    gap: 0.5rem;
-  }
-  .order .edit {
-    margin: auto;
-    width: 22px;
-    height: 40px;
+    width: 270px;
   }
 }
 /*# sourceMappingURL=index.css.map */
