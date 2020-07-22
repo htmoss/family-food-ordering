@@ -94,6 +94,7 @@ const Summary = () => {
 				variants={containerVariants}
 				initial='hidden'
 				animate='visible'
+				id='summary-container'
 			>
 				<h1>Summary</h1>
 				<ul>
@@ -136,10 +137,6 @@ const Summary = () => {
 						</div>
 					)}
 				</div>
-
-				{/* <Link to='/orders'>
-				<button className='btn'>Back</button>
-			</Link> */}
 
 				<Link to='/complete'>
 					<button className='btn'>Submit Order</button>

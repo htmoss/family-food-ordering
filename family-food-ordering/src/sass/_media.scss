@@ -1,0 +1,71 @@
+@media (min-width: 1280px) {
+	// menu automatically comes out if it is a widescreen
+	.menu {
+		.side-order {
+			width: 300px;
+			.ordered-item {
+				margin-left: 0rem;
+			}
+			.user-order-total {
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+		.pic-and-name {
+			#hover-to-expand {
+				display: none;
+			}
+			#tap-to-expand {
+				display: none;
+			}
+		}
+	}
+}
+
+// just for ipads
+@media (max-width: 768px) {
+	.menu {
+		.pic-and-name {
+			#hover-to-expand {
+				display: none;
+			}
+			#tap-to-expand {
+				display: block;
+			}
+		}
+	}
+}
+
+//phones
+@media (max-width: 750px) {
+	.menu {
+		.title-menu-items {
+			width: 200px;
+			margin-left: 0.3rem;
+		}
+		.menu-items {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+}
+
+//iphone 5s
+@media (max-width: 320px) {
+	.menu {
+		.title-menu-items {
+			width: 150px;
+			margin-left: 0.3rem;
+		}
+		.menu-items {
+			grid-template-columns: repeat(1, 1fr);
+
+			.menu-item {
+				width: 150px;
+			}
+			.menu-img {
+				height: 120px;
+				width: 150px;
+			}
+		}
+	}
+}

@@ -228,7 +228,7 @@ ul {
 
 .menu .side-order {
   padding: 1rem;
-  padding-top: 4rem;
+  padding-top: 2rem;
   position: fixed;
   right: 0;
   top: 0;
@@ -270,6 +270,21 @@ ul {
 
 .menu .pic-and-name .name {
   text-decoration: none;
+}
+
+.menu .pic-and-name .pic {
+  margin-top: 2rem;
+}
+
+.menu .pic-and-name #hover-to-expand {
+  display: block;
+  margin-bottom: 2rem;
+  margin: 0;
+}
+
+.menu .pic-and-name #tap-to-expand {
+  display: none;
+  margin: 0;
 }
 
 .menu .ordered-item {
@@ -326,14 +341,17 @@ ul {
   justify-content: space-between;
 }
 
+.menu .title-menu-items {
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
 .menu .menu-items {
   text-decoration: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem 0rem;
-  padding: 0 1rem;
-  margin: 0 auto;
-  max-width: 650px;
 }
 
 .menu .menu-items .menu-item {
@@ -373,6 +391,7 @@ ul {
   width: 200px;
   overflow: hidden;
   object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .sum-item {
@@ -431,5 +450,64 @@ ul {
 .final-item h2,
 .final-item h4 {
   margin: 0.5rem 0;
+}
+
+#summary-container {
+  margin: 0 1rem !important;
+}
+
+@media (min-width: 1280px) {
+  .menu .side-order {
+    width: 300px;
+  }
+  .menu .side-order .ordered-item {
+    margin-left: 0rem;
+  }
+  .menu .side-order .user-order-total {
+    visibility: visible;
+    opacity: 1;
+  }
+  .menu .pic-and-name #hover-to-expand {
+    display: none;
+  }
+  .menu .pic-and-name #tap-to-expand {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu .pic-and-name #hover-to-expand {
+    display: none;
+  }
+  .menu .pic-and-name #tap-to-expand {
+    display: block;
+  }
+}
+
+@media (max-width: 750px) {
+  .menu .title-menu-items {
+    width: 200px;
+    margin-left: 0.3rem;
+  }
+  .menu .menu-items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 320px) {
+  .menu .title-menu-items {
+    width: 150px;
+    margin-left: 0.3rem;
+  }
+  .menu .menu-items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .menu .menu-items .menu-item {
+    width: 150px;
+  }
+  .menu .menu-items .menu-img {
+    height: 120px;
+    width: 150px;
+  }
 }
 /*# sourceMappingURL=index.css.map */

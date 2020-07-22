@@ -35,7 +35,13 @@ const Menu = () => {
 			>
 				<div className='side-order'>
 					<div className='pic-and-name'>
-						<img src={`/img/users/${currEdit.pic}.png`} alt='User' />
+						<p id='tap-to-expand'>Tap to Expand</p>
+						<p id='hover-to-expand'>Hover to Expand</p>
+						<img
+							className='pic'
+							src={`/img/users/${currEdit.pic}.png`}
+							alt='User'
+						/>
 						<div className='name'>{currEdit.name}</div>
 					</div>
 					<div className='order-and-total'>
@@ -60,11 +66,6 @@ const Menu = () => {
 					</div>
 				</div>
 				<MenuItems />
-				<Link to='/orders'>
-					<button className='btn' onClick={updateCurrEdit}>
-						Save
-					</button>
-				</Link>
 			</motion.div>
 		</div>
 	);
